@@ -67,8 +67,6 @@ def main():
         elif choice == 5:
             print("Terima kasih telah menggunakan aplikasi kami.")
 
-def new_func():
-    global expenses
 
 if __name__ == "__main__":
     main()
