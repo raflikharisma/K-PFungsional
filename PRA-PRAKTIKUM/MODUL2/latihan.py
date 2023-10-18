@@ -1,21 +1,21 @@
 
-
 expenses = [
 {'tanggal': '2023-07-25', 'deskripsi': 'Makan Siang', 'jumlah': 50000},
 {'tanggal': '2023-07-25', 'deskripsi': 'Transportasi', 'jumlah': 25000},
 {'tanggal': '2023-07-26', 'deskripsi': 'Belanja', 'jumlah': 100000},
 ]
 
-def add_expense(new_expense):
+def add_expense(expense):
     innerData = {}
     date = input("Masukkan tanggal pengeluaran (YYYY-MM-DD): ")
     description = input("Masukkan deskripsi pengeluaran: ")
     amount = int(input("Masukkan jumlah pengeluaran: "))
-    innerData['date'] = date 
-    innerData['description'] = description
-    innerData['amount'] = amount
-    new_expense.append(innerData)
-    return new_expense
+    innerData['tanggal'] = date 
+    innerData['deskripsi'] = description
+    innerData['jumlah'] = amount
+    new_expenses = expense[:]
+    new_expenses.append(innerData)
+    return new_expenses
 
 def view_expenses_by_date(new_expense):
     date = input("Masukkan tanggal : ")
@@ -48,15 +48,14 @@ def display_menu():
     print("4. Lihat Laporan Pengeluaran Harian")
     print("5. Keluar")
 
-def get_user_input(command):
-    return int(input(command))
-
 def main():
+    global expenses
     while True:
         display_menu()
-        choice = get_user_input("Pilih menu (1/2/3/4/5): ")
+        choice = int(input("Pilih menu (1/2/3/4/5): "))
         if choice == 1:
-            add_expense(expenses)
+            expenses = add_expense(expenses)
+            print(expenses)
         elif choice == 2:
             view_expenses_by_date(expenses)
         elif choice == 3:
