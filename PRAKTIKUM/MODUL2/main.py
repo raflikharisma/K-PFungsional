@@ -1,8 +1,8 @@
 import random
 
-def create_board(width, default_char='-'):
-    # Membuat board dengan list comprehension
-    board = [[default_char for _ in range(width)] for _ in range(width)]
+
+def create_board(lebar, area='-'):
+    board = [[area for x in range(lebar)] for x in range(lebar)]
     return board
 
 def generate_random_position(width):
@@ -12,7 +12,6 @@ def generate_random_position(width):
         yield (row, col)
 
 def place_piece(board, row, col, piece_char):
-    # Menempatkan bidak pada posisi yang ditentukan
     if 0 <= row < len(board) and 0 <= col < len(board[0]):
         board[row][col] = piece_char
     else:
@@ -22,8 +21,7 @@ def print_board(board):
     for row in board:
         print(' '.join(row))
 
-def move_piece(board, position, move_direction):
-    # Fungsi ini akan memindahkan bidak ke arah yang ditentukan
+def move_func(board, position, move_direction):
     row, col = position
     new_row, new_col = row, col
 
@@ -42,28 +40,49 @@ def move_piece(board, position, move_direction):
     else:
         return row, col
 
+
+    
+
 def main():
-    # Input lebar dari pengguna
     width = int(input("Masukkan lebar board: "))
-
-    # Membuat board sesuai dengan inputan, mengisi dengan karakter '-'
     board = create_board(width)
-
-    # Membuat generator posisi awal bidak dan tujuan bidak secara acak
+    count = 0
+    move = 0
+    batas = 0
+    if width < 5:
+        batas = 5
+    elif width > 5:   
+        batas *= 2
+        
+        
     position_generator = generate_random_position(width)
     start_row, start_col = next(position_generator)
     goal_row, goal_col = next(position_generator)
-
-    # Menempatkan bidak (simbol 'A') pada posisi awal yang dihasilkan secara acak
     place_piece(board, start_row, start_col, 'A')
-
-    # Menempatkan tujuan bidak (simbol 'O') pada posisi yang dihasilkan secara acak
     place_piece(board, goal_row, goal_col, 'O')
-
-    print("Selamat datang dalam permainan!")
+    print_board(board)
+    
+    while True:
+        choose = input(str("Ingin restart posisi: "))
+        if choose == "y":
+            place_piece(board, start_row, start_col, '-')
+            place_piece(board, goal_row, goal_col, '-')
+            start_row, start_col = next(position_generator)
+            goal_row, goal_col = next(position_generator)
+            place_piece(board, start_row, start_col, 'A')
+            place_piece(board, goal_row, goal_col, 'O')
+            print_board(board)   
+            count += 1
+            if count == 3:
+                break
+        else:
+            break
+            
+    print("\nSelamat datang dalam permainan!")
     print_board(board)
 
     while True:
+        move += 1
         move_direction = input("Masukkan arah pergerakan (w/a/s/d) atau 'q' untuk keluar: ").lower()
 
         if move_direction == 'q':
@@ -71,15 +90,19 @@ def main():
             break
 
         if move_direction not in ['w', 'a', 's', 'd']:
-            print("Arah pergerakan tidak valid. Harap masukkan arah yang benar.")
-            continue
+            print("Mengklik di luar awsd anda kalah")
+            break
 
-        start_row, start_col = move_piece(board, (start_row, start_col), move_direction)
+        start_row, start_col = move_func(board, (start_row, start_col), move_direction)
         print_board(board)
 
         if (start_row, start_col) == (goal_row, goal_col):
             print("Selamat! Anda menang!")
             break
+        elif (move == batas):
+            print("Anda kalah! lebar dikit gabisa menang")
+            break
+        
 
 if __name__ == "__main__":
     main()
