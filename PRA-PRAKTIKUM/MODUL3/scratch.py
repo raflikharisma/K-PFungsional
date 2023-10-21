@@ -22,6 +22,8 @@
     # menit3 = int(data3[3])
     
     
+    
+    
     # data1 = convert(minggu1)(hari1)(jam1)(menit1)
     # data2 = convert(minggu2)(hari2)(jam2)(menit2)
     # data3 = convert(minggu3)(hari3)(jam3)(menit3)
@@ -30,3 +32,21 @@
     
     # print(tempList)
     
+    # def sumByGenre(data):
+    # drama = len(list(filter(lambda x: x["genre"] == "Drama", data)))
+    # action = len(list(filter(lambda x: x["genre"] == "Action", data)))
+    # comedy = len(list(filter(lambda x: x["genre"] == "Comedy", data)))
+    # horor = len(list(filter(lambda x: x["genre"] == "Horror", data)))
+    # scifi = len(list(filter(lambda x: x["genre"] == "Sci-Fi", data)))
+    # return {"Action": action,"Drama": drama ,"Horor": horor, "Comedy": comedy, "Sci-Fi": scifi}
+    
+    # def counting(filtered):
+    #     tempList = {}
+    #     for year in filtered:
+    #         yearMovies = list(filter(lambda x: x["year"] == year, data))
+    #         sumMovies = sum(movie["rating"] for movie in data if movie["year"] == year)
+    #         tempList[year] = sumMovies/len(yearMovies)
+    #     return tempList
+        
+    # return counting(temp)
+        
