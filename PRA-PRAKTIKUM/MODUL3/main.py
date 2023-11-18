@@ -7,7 +7,7 @@ def data_split(value):
  
 def convert(minggu):
     def d(day):
-        def h(hours):
+        def h(hours):   
             def m(minute):
                 return (minggu * 10080) + (day * 1440) + (hours * 60) + minute
             return m
@@ -45,10 +45,10 @@ def main():
     data = ["3 minggu 3 hari 7 jam 21 menit",
         "5 minggu 5 hari 8 jam 11 menit",
         "7 minggu 1 hari 5 jam 33 menit"]
-
-
+    
     result = []
     kegiatan2 = []
+    
     for element in data:
         data_points = data_split(element)
         kegiatan2.append(data_points)
@@ -57,32 +57,20 @@ def main():
             result.append(convert(minggu)(hari)(jam)(menit))
 
     # Kegiatan 1 dan 2
-    # print(kegiatan2)
-    # print(result)
-    
+    print(result)
+    print(kegiatan2)
     
     # Kegiatan 3
-    # random_list = [105, 3.1, 737, "python", 2.7, "world", 412, 5.5, "Al"]
-    # tempInteger = resultFilterInteger(random_list)
-    # print(parseResult(str(tempInteger[0])))
-    # print(parseResult(str(tempInteger[1])))
-    # print(parseResult(str(tempInteger[2])))
+    random_list = [105, 3.1, 737, "python", 2.7, "world", 412, 5.5, "Al"]
+    tempInteger = resultFilterInteger(random_list)
+    print(parseResult(str(tempInteger[0])))
+    print(parseResult(str(tempInteger[1])))
+    print(parseResult(str(tempInteger[2])))
+    print(resultFilterStr(random_list))
+    print(resultFilterFloat(random_list))
 
 
-    
-    
-    
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
-    
     
   
 

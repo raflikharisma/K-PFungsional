@@ -1,52 +1,59 @@
-# filtered_data = [
-    # ' '.join(list(filter(contains_digit, element.split())))
-    # for element in data
-    # ]   
+from functools import reduce
+def check (input):
+    if input < 1:
+        return print ("inputan tidak valid")
+    elif input % 2 == 0:
+        return  print("inputan genap")
+    elif input % 2 == 1:
+        return print("inputan ganjil")
     
-    # data1 = data_split(filtered_data[0])
-    # minggu1 = int(data1[0])
-    # hari1 = int(data1[1])
-    # jam1 = int(data1[2])
-    # menit1 = int(data1[3])
+def pangkat(data):
+    return [x ** 2  for x in data]
+
+def pangkatMap(data):
+    return list(map(lambda x: x ** 2, data))
+
+def pangkatReduce(data):
+    return reduce(lambda x,y: x * y, data) 
+
+
+
+kali = lambda x,y:  x * y
+
+def sortt(data):
+    return data[::-1]
+
+def paksaTurun(data):
+    return data.lower()
+
+
+def bilanganpostif(data):
+    return data >= 0
+
+def main():
+    inputan = int(input("Masukkan Inputan Anda : "))
+    check(inputan)
     
-    # data2 = data_split(filtered_data[1])
-    # minggu2 = int(data2[0])
-    # hari2 = int(data2[1])
-    # jam2 = int(data2[2])
-    # menit2 = int(data2[3])
+    my_list = [1,2,3,4,5]
+    print(sum(my_list))
+    print(pangkat(my_list))
+    print(pangkatMap(my_list))
+    print(pangkatReduce(my_list))
+    print(kali(2,3))
+    print(sortt(my_list))
     
-    # data3 = data_split(filtered_data[2])
-    # minggu3 = int(data3[0])
-    # hari3 = int(data3[1])
-    # jam3 = int(data3[2])
-    # menit3 = int(data3[3])
+    aw = [x for x in range(1,11) if x % 2 == 1]
+    print(aw)
     
+    listme = [-1,-34,45.6,-76.8,-31.3]
+    aww = reduce(lambda x,y: x + y, listme)
+    print(aww)
     
+    awww = map(paksaTurun, "RaFli KHaRismA")
+    awwww = list(filter(bilanganpostif, listme))
+    print(awwww)
     
+if __name__ == "__main__":
+    main()
+
     
-    # data1 = convert(minggu1)(hari1)(jam1)(menit1)
-    # data2 = convert(minggu2)(hari2)(jam2)(menit2)
-    # data3 = convert(minggu3)(hari3)(jam3)(menit3)
-    
-    # tempList = [data1, data2, data3]
-    
-    # print(tempList)
-    
-    # def sumByGenre(data):
-    # drama = len(list(filter(lambda x: x["genre"] == "Drama", data)))
-    # action = len(list(filter(lambda x: x["genre"] == "Action", data)))
-    # comedy = len(list(filter(lambda x: x["genre"] == "Comedy", data)))
-    # horor = len(list(filter(lambda x: x["genre"] == "Horror", data)))
-    # scifi = len(list(filter(lambda x: x["genre"] == "Sci-Fi", data)))
-    # return {"Action": action,"Drama": drama ,"Horor": horor, "Comedy": comedy, "Sci-Fi": scifi}
-    
-    # def counting(filtered):
-    #     tempList = {}
-    #     for year in filtered:
-    #         yearMovies = list(filter(lambda x: x["year"] == year, data))
-    #         sumMovies = sum(movie["rating"] for movie in data if movie["year"] == year)
-    #         tempList[year] = sumMovies/len(yearMovies)
-    #     return tempList
-        
-    # return counting(temp)
-        

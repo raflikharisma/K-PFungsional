@@ -68,7 +68,6 @@ movies = [
     }
 ]
  
-
 def sumByGenre(data):
     result = {}
     temp = set(movie["genre"] for movie in data)
