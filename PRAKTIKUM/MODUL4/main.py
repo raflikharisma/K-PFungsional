@@ -29,6 +29,7 @@ def translasi(pointA, pointB, tx, ty):
     x2, y2 = pointB
     return [(x1 + tx, y1 + ty), (x2 + tx, y2 + ty)]
 
+
 @decorator
 def rotasi(pointA, pointB, theta_degrees):
     def rotate_point(x, y, theta_degrees):
@@ -57,13 +58,11 @@ def dilatasi(pointA, pointB, scaleX, scaleY):
 def main(): 
     pointA = input_point("Masukkan titik A (Pisahkan dengan spasi): ")
     pointB = input_point("Masukkan titik B (Pisahkan dengan spasi): ")
-
     tx = float(input("Masukkan nilai translasi tx: "))
     ty = float(input("Masukkan nilai translasi ty: "))
     sudut = int(input("Masukkan sudut rotasi: "))
     scaleX = float(input("Masukkan faktor skala X: "))
     scaleY = float(input("Masukkan faktor skala Y: "))
-
     gradient = calc_gradient(pointA, pointB)
     constanta = calc_constanta(pointA, gradient)
 
@@ -73,7 +72,6 @@ def main():
     rotated_points = rotasi(*translated_points, sudut)
     scaled_points = dilatasi(*rotated_points, scaleX, scaleY)
     
-
     newGradient = calc_gradient(scaled_points[0], scaled_points[1])
     newConstanta = calc_constanta(scaled_points[0], newGradient)
     print("Setelah ditransformasi : \n", transformation(newGradient, newConstanta))

@@ -4,7 +4,6 @@ import numpy as np
 
 
 
-
 nilai_mahasiswa = [75,80, 90, 65, 70,85,95,78,88,92]
 mahasiswa = list(map(lambda i: f"MHS{i+1}", range(len(nilai_mahasiswa))))
 

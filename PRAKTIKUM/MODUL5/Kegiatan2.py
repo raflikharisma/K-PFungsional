@@ -5,7 +5,7 @@ data = pd.read_csv("D:\KULIAH\SEMESTER 5\FUNGSIONAL\PRAKTIKUM\Click Here\PRAKTIK
 data["Total Harga"] = data["Harga Produk"]*data["Jumlah Beli"]
 print(data.to_string())
 
-plt.subplot(1, 2, 1)
+plt.subplot(1, 2 , 1)
 plt.title("Hubungan Harga Produk dan Jumlah Produk Terjual")
 plt.scatter(data["Harga Produk"], data["Jumlah Beli"])
 plt.xlabel("Harga Produk")
