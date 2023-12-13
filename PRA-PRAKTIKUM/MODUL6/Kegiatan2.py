@@ -1,8 +1,8 @@
 from PIL import Image
 
 
-background_path = "D:\KULIAH\SEMESTER 5\FUNGSIONAL\PRAKTIKUM\Click Here\PRA-PRAKTIKUM\MODUL6/bg_img.jpg"
-overlay_path = "D:\KULIAH\SEMESTER 5\FUNGSIONAL\PRAKTIKUM\Click Here\PRA-PRAKTIKUM\MODUL6\overlay.jpg"
+background_path = "D:\KULIAH\SEMESTER 5\FUNGSIONAL\PRAKTIKUM\Click Here\PRA-PRAKTIKUM\MODUL6/assets/bg_img.jpg"
+overlay_path = "D:\KULIAH\SEMESTER 5\FUNGSIONAL\PRAKTIKUM\Click Here\PRA-PRAKTIKUM\MODUL6/assets/overlay.jpg"
 background = Image.open(background_path)
 overlay = Image.open(overlay_path)
 overlay = overlay.convert("RGBA")

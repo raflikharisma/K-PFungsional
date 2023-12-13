@@ -1,6 +1,6 @@
 from PIL import Image, ImageOps, ImageDraw, ImageFont
 
-img = Image.open("D:\\KULIAH\\SEMESTER 5\\FUNGSIONAL\\PRAKTIKUM\\Click Here\\PRA-PRAKTIKUM\\MODUL6\\kucing.jpg")
+img = Image.open("D:\\KULIAH\\SEMESTER 5\\FUNGSIONAL\\PRAKTIKUM\\Click Here\\PRA-PRAKTIKUM\\MODUL6\\assets\\kucing.jpg")
 
 fontPath = "D:\\KULIAH\\SEMESTER 5\\FUNGSIONAL\\PRAKTIKUM\\Click Here\\static\\Montserrat-Regular.ttf"
 customFont = ImageFont.truetype(fontPath, 24)
